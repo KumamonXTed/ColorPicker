@@ -114,7 +114,7 @@ open class ColorPickerListView: UIScrollView {
         selectColorButton(button)
     }
     
-    func selectColorButton(_ colorPickerButton: ColorPickerButton) {
+    @objc func selectColorButton(_ colorPickerButton: ColorPickerButton) {
         let colorPickerButtonIndex = colorPickerButtons.index(of: colorPickerButton)!
         if let selectedButton = self.selectedButton , allowsDeselection && colorPickerButtons.index(of: selectedButton)! ==  colorPickerButtonIndex {
             self.selectedButton = nil
