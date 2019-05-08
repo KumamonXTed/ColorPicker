@@ -19,9 +19,9 @@ public extension UIColor {
     }
     
     public static func colorWithHexString(_ colorHexString: String) -> UIColor {
-        let isIncludeSharp = colorHexString.characters.first == "#"
-        let colorHexAfterCondition = isIncludeSharp ? colorHexString.characters.split{$0 == "#"}.map(String.init).last : colorHexString
-        guard let _colorHexAfterCondition = colorHexAfterCondition , _colorHexAfterCondition.characters.count == 6 || _colorHexAfterCondition.characters.count == 3 else {
+        let isIncludeSharp = colorHexString.first == "#"
+        let colorHexAfterCondition = isIncludeSharp ? colorHexString.split{$0 == "#"}.map(String.init).last : colorHexString
+        guard let _colorHexAfterCondition = colorHexAfterCondition , _colorHexAfterCondition.count == 6 || _colorHexAfterCondition.count == 3 else {
             assertionFailure("Wrong Hex color for \(colorHexAfterCondition)")
             return UIColor.black
         }
@@ -44,7 +44,7 @@ public extension UIColor {
 
 extension String {
     func subString(_ from: Int, to: Int) -> String {
-        let range = self.characters.index(self.startIndex, offsetBy: from)..<self.characters.index(self.startIndex, offsetBy: to+1)
+        let range = self.index(self.startIndex, offsetBy: from)..<self.index(self.startIndex, offsetBy: to+1)
         return self.substring(with: range)
     }
 }
