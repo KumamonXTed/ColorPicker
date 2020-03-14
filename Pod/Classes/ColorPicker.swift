@@ -47,6 +47,7 @@ open class ColorPickerListView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureView()
     }
     
     public init(frame: CGRect, colors:[String]) {
@@ -67,7 +68,7 @@ open class ColorPickerListView: UIScrollView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         for (index, button) in self.colorPickerButtons.enumerated() {
-            frame = CGRect(origin: CGPoint.zero, size: self.bounds.size)
+            frame = CGRect(origin: frame.origin, size: self.bounds.size)
             contentInset = UIEdgeInsets.zero
             let x: CGFloat
             if (alignment.lowercased() == "left") {
